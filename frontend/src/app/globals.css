@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens: flat, light, Notion-like, styled after patina.md (docs/plan/05-frontend.md §12.0).
+ * Components use these semantic names (bg-surface, border-line, text-ink-secondary…), never raw hex.
+ */
+@theme {
+  --font-ui: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Surfaces */
+  --color-canvas: #fafaf8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f1ec;
+  --color-line: #e5e5e3;
+  --color-placeholder: #e8e8e4;
+
+  /* Text */
+  --color-ink: #111111;
+  --color-ink-secondary: #555555;
+  --color-ink-tertiary: #8a8a85;
+
+  /* Accent */
+  --color-accent: #2a6ef5;
+  --color-accent-soft: #edf4ff;
+
+  /* Status pills: background / ink pairs */
+  --color-status-detected-bg: #f1f1ec;
+  --color-status-detected-ink: #555555;
+  --color-status-applied-bg: #edf4ff;
+  --color-status-applied-ink: #345f96;
+  --color-status-assessment-bg: #fff1d9;
+  --color-status-assessment-ink: #7b5a23;
+  --color-status-shortlisted-bg: #eceaf7;
+  --color-status-shortlisted-ink: #554f84;
+  --color-status-interview-bg: #e7f6fb;
+  --color-status-interview-ink: #245d6a;
+  --color-status-offer-bg: #eaf7ee;
+  --color-status-offer-ink: #2f6a41;
+  --color-status-rejected-bg: #fbeaea;
+  --color-status-rejected-ink: #8a3b3b;
+  --color-status-withdrawn-bg: #f8ece1;
+  --color-status-withdrawn-ink: #76523b;
+  --color-status-review-bg: #f6e9f3;
+  --color-status-review-ink: #7a4b70;
+
+  /* Floating layers only (menus, dialogs, side peek); everything else is flat */
+  --shadow-float: 0 14px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+html {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.next/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

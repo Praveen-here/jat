@@ -1,0 +1,20 @@
+# Local development database. Matches the managed Postgres we use later (Supabase).
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: tracker
+      POSTGRES_PASSWORD: tracker
+      POSTGRES_DB: tracker
+    ports:
+      - "5433:5432"   # 5433 on your machine: a Windows PostgreSQL service already uses 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracker -d tracker"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

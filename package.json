@@ -1,0 +1,26 @@
+{
+  "name": "job-application-tracker",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "concurrently -n frontend,backend,worker -c blue,green,magenta \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\" \"pnpm --filter backend dev:worker\"",
+    "build": "pnpm -r build",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:up": "docker compose up -d --wait postgres",
+    "db:down": "docker compose down",
+    "db:migrate": "pnpm --filter backend db:migrate"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^10.0.6",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.1"
+  }
+}
